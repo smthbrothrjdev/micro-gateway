@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+
+      mvc:
+        routes:
+          - id: banner
+            uri: ${BANNER_URI:http://localhost:8089}
+            predicates:
+              - Path=/motd/**
+            filters:
+              - PrefixPath=/api
+              - AddResponseHeader=X-Powered-By,MICRO GATEWAY
+            metadata:
+              cors:
+              allowedOrigins: '*'
+              allowedMethods:
+                - GET
+                - POST
+              allowedHeaders: '*'
+              maxAge: 30
