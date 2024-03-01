@@ -11,11 +11,9 @@ spring:
             filters:
               - PrefixPath=/api
               - AddResponseHeader=X-Powered-By,MICRO GATEWAY
-            metadata:
-              cors:
-              allowedOrigins: '*'
-              allowedMethods:
-                - GET
-                - POST
-              allowedHeaders: '*'
-              maxAge: 30
+#          - id: frontend
+#            uri: ${FRONTEND_URI:http://localhost:8000}
+#            predicates:
+#              - Path=/**
+#            filters:
+#              - AddResponseHeader=X-Powered-By, MICRO GATEWAY
